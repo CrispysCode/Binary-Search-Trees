@@ -8,3 +8,32 @@ class Node {
     this.right = null;
   }
 }
+
+  function sortedArrayToBSTRecur(arr, start, end) {
+    if (start > end) return null;
+
+    //Finding middle element
+    let mid = start + Math.floor((end - start) / 2);
+
+    //Create rood node
+    let root = new Node(arr[mid]);
+
+    //Create left Subtree
+    root.left = sortedArrayToBSTRecur(arr, start, mid - 1);
+
+    //Create right Subtree
+    root.right = sortedArrayToBSTRecur(arr, mid + 1, end);
+
+    return root;
+  }
+
+  function sortedArrayToBST(arr) {
+    return sortedArrayToBSTRecur(arr, 0, arr.length - 1);
+  }
+
+  function preOrder(root) {
+    if (root === null) return;
+    console.log(root.data);
+    preOrder(root.left);
+    preOrder(root.right);
+  }
