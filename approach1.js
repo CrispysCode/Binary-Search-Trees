@@ -37,3 +37,8 @@ class Node {
     preOrder(root.left);
     preOrder(root.right);
   }
+
+  const arr = [1, 2, 3, 4];
+  const root = sortedArrayToBST(arr);
+  preOrder(root);
+  // 2 1 3 4 
